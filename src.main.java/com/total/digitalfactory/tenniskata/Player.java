@@ -13,5 +13,12 @@ public interface Player {
 	public void winball();
 	
 	public int getScore();
+
+	/**
+	 * init score with 0.
+	 * 
+	 * @since 1.0
+	 */
+	public void initScore();
 	
 }

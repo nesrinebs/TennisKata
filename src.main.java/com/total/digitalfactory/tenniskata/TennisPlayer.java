@@ -41,5 +41,10 @@ public class TennisPlayer implements Player{
 		
 		
 	}
+
+	@Override
+	public void initScore() {
+		_score=0;
+	}
 	
 }
