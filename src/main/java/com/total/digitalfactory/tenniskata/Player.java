@@ -10,7 +10,7 @@ public interface Player {
 	
 	public String getName();
 	
-	public void winball();
+	public void winBall();
 	
 	public int getScore();
 

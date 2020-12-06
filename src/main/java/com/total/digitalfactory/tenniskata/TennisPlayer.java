@@ -6,45 +6,56 @@ package com.total.digitalfactory.tenniskata;
  * @since 1.0
  * @author nesrine
  */
-public class TennisPlayer implements Player{
+public class TennisPlayer
+implements
+Player {
 	
-	private static String[] scoreDescription = {"love","fifteen", "thirty", "forty"};
-
+	private static String[] scoreDescription = {
+		"love",
+		"fifteen",
+		"thirty",
+		"forty",
+		"advantage",
+		"wingame"
+	};
+	
 	private String _name;
 	private int _score;
 	
-
 	public TennisPlayer(String name) {
 		super();
 		_name = name;
 		_score = 0;
 	}
-
+	
 	@Override
 	public String getName() {
 		return _name;
 	}
-
+	
 	@Override
-	public void winball() {
-		_score ++;
+	public void winBall() {
+		
+		_score++;
+		
 		// TODO test when score ==3.
+		
 	}
-
+	
 	@Override
 	public int getScore() {
 		return _score;
 	}
 	
 	public String getScoreDescription() {
-		return scoreDescription[_score];
-		
+		if (_score <= 4) return scoreDescription[_score];
+		else return "";
 		
 	}
-
+	
 	@Override
 	public void initScore() {
-		_score=0;
+		_score = 0;
 	}
 	
 }
