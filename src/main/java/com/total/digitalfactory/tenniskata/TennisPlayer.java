@@ -11,12 +11,12 @@ implements
 Player {
 	
 	private static String[] scoreDescription = {
-		"love",
-		"fifteen",
-		"thirty",
-		"forty",
-		"advantage",
-		"wingame"
+		TennisGameScore.love.name(),
+		TennisGameScore.fiftheen.name(),
+		TennisGameScore.thirty.name(),
+		TennisGameScore.forty.name(),
+		TennisGameScore.advantage.name(),
+		TennisGameScore.wingame.name()
 	};
 	
 	private String _name;
