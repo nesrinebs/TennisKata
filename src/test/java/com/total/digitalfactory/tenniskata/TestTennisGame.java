@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 /**
- * Test Units of {@link TennisGame}
+ * Test Units of {@link TennisGameImpl}
  * 
  * @since 1.0
  */
@@ -22,15 +22,15 @@ Implement a simple tennis game
 */
 public class TestTennisGame {
 	
-	TennisPlayer player1;
-	TennisPlayer player2;
-	TennisGame game;
+	TennisPlayerImpl player1;
+	TennisPlayerImpl player2;
+	TennisGameImpl game;
 	
 	@Before
 	public void initGame() {
-		player1 = new TennisPlayer("Roger Federer");
-		player2 = new TennisPlayer("Serena Williams");
-		game = new TennisGame(player1, player2);
+		player1 = new TennisPlayerImpl("Roger Federer");
+		player2 = new TennisPlayerImpl("Serena Williams");
+		game = new TennisGameImpl(player1, player2);
 		
 	}
 	
@@ -42,7 +42,7 @@ public class TestTennisGame {
 		assertTrue(player2.getName().equalsIgnoreCase("Serena Williams"));
 		assertTrue(player2.getScore() == 0);
 		assertTrue(game.getScore().values().size() == 2);
-		assertTrue(game.getScore().values().stream().allMatch(a -> TennisGameScore.customValueOf(0).equals(TennisGameScore.love)));
+		assertTrue(game.getScore().values().stream().allMatch(a -> TennisGameScoreEnum.customValueOf(0).equals(TennisGameScoreEnum.love)));
 		
 	}
 	
@@ -51,12 +51,12 @@ public class TestTennisGame {
 		initGame();
 		player1.winBall();
 		assertTrue(player1.getScore() == 1);
-		assertTrue(game.getScore().get(player1).equals(TennisGameScore.fiftheen));
-		assertTrue(game.getScore().get(player2).equals(TennisGameScore.love));
+		assertTrue(game.getScore().get(player1).equals(TennisGameScoreEnum.fiftheen));
+		assertTrue(game.getScore().get(player2).equals(TennisGameScoreEnum.love));
 		player2.winBall();
 		assertTrue(player2.getScore() == 1);
-		assertTrue(game.getScore().get(player1).equals(TennisGameScore.fiftheen));
-		assertTrue(game.getScore().get(player2).equals(TennisGameScore.fiftheen));
+		assertTrue(game.getScore().get(player1).equals(TennisGameScoreEnum.fiftheen));
+		assertTrue(game.getScore().get(player2).equals(TennisGameScoreEnum.fiftheen));
 		
 	}
 	
@@ -66,8 +66,8 @@ public class TestTennisGame {
 		player1.winBall();
 		player2.winBall();
 		player1.winBall();
-		assertTrue(game.getScore().get(player1).equals(TennisGameScore.thirty));
-		assertTrue(game.getScore().get(player2).equals(TennisGameScore.fiftheen));
+		assertTrue(game.getScore().get(player1).equals(TennisGameScoreEnum.thirty));
+		assertTrue(game.getScore().get(player2).equals(TennisGameScoreEnum.fiftheen));
 	}
 	
 	@Test
@@ -76,8 +76,8 @@ public class TestTennisGame {
 		IntStream.rangeClosed(1, 3).forEach((Integer) -> {
 			player1.winBall();
 		});
-		assertTrue(game.getScore().get(player1).equals(TennisGameScore.forty));
-		assertTrue(game.getScore().get(player2).equals(TennisGameScore.love));
+		assertTrue(game.getScore().get(player1).equals(TennisGameScoreEnum.forty));
+		assertTrue(game.getScore().get(player2).equals(TennisGameScoreEnum.love));
 	}
 	
 	@Test
@@ -90,7 +90,7 @@ public class TestTennisGame {
 			player2.winBall();
 		});
 		
-		assertTrue(game.getScore().get(player2).equals(TennisGameScore.advantage));
+		assertTrue(game.getScore().get(player2).equals(TennisGameScoreEnum.advantage));
 	}
 	
 	@Test
@@ -102,15 +102,15 @@ public class TestTennisGame {
 		IntStream.rangeClosed(1, 3).forEach((Integer) -> {
 			player2.winBall();
 		});
-		assertTrue(game.getScore().get(player1).equals(TennisGameScore.deuce));
-		assertTrue(game.getScore().get(player2).equals(TennisGameScore.deuce));
+		assertTrue(game.getScore().get(player1).equals(TennisGameScoreEnum.deuce));
+		assertTrue(game.getScore().get(player2).equals(TennisGameScoreEnum.deuce));
 		player1.winBall();
-		assertFalse(game.getScore().get(player1).equals(TennisGameScore.deuce));
+		assertFalse(game.getScore().get(player1).equals(TennisGameScoreEnum.deuce));
 		System.out.println(game.getScore().get(player1));
-		assertFalse(game.getScore().get(player2).equals(TennisGameScore.deuce));
+		assertFalse(game.getScore().get(player2).equals(TennisGameScoreEnum.deuce));
 		player2.winBall();
-		assertTrue(game.getScore().get(player1).equals(TennisGameScore.deuce));
-		assertTrue(game.getScore().get(player2).equals(TennisGameScore.deuce));
+		assertTrue(game.getScore().get(player1).equals(TennisGameScoreEnum.deuce));
+		assertTrue(game.getScore().get(player2).equals(TennisGameScoreEnum.deuce));
 	}
 	
 	@Test
@@ -122,9 +122,9 @@ public class TestTennisGame {
 		IntStream.rangeClosed(1, 3).forEach((Integer) -> {
 			player2.winBall();
 		});
-		assertFalse(game.getScore().get(player1).equals(TennisGameScore.wingame));
+		assertFalse(game.getScore().get(player1).equals(TennisGameScoreEnum.wingame));
 		player1.winBall();
-		assertTrue(game.getScore().get(player1).equals(TennisGameScore.wingame));
+		assertTrue(game.getScore().get(player1).equals(TennisGameScoreEnum.wingame));
 	}
 	
 }

@@ -6,7 +6,7 @@ package com.total.digitalfactory.tenniskata;
  * @since 1.0 
  * @author nesrine
  */
-public interface Player {
+public interface IPlayer {
 	
 	public String getName();
 	

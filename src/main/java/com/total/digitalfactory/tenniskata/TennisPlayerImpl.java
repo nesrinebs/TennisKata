@@ -6,24 +6,24 @@ package com.total.digitalfactory.tenniskata;
  * @since 1.0
  * @author nesrine
  */
-public class TennisPlayer
+public class TennisPlayerImpl
 implements
-Player {
+IPlayer {
 	
 	private static String[] scoreDescription = {
-		TennisGameScore.love.name(),
-		TennisGameScore.fiftheen.name(),
-		TennisGameScore.thirty.name(),
-		TennisGameScore.forty.name(),
-		TennisGameScore.advantage.name(),
-		TennisGameScore.wingame.name()
+		TennisGameScoreEnum.love.name(),
+		TennisGameScoreEnum.fiftheen.name(),
+		TennisGameScoreEnum.thirty.name(),
+		TennisGameScoreEnum.forty.name(),
+		TennisGameScoreEnum.advantage.name(),
+		TennisGameScoreEnum.wingame.name()
 	};
 	
 	private String _name;
 	private int _score;
 	
-	public TennisPlayer(String name) {
-		super();
+	public TennisPlayerImpl(String name) {
+	
 		_name = name;
 		_score = 0;
 	}

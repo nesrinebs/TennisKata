@@ -1,6 +1,6 @@
 package com.total.digitalfactory.tenniskata;
 
-public enum TennisGameScore {
+public enum TennisGameScoreEnum {
 	love("0"),
 	fiftheen("1"),
 	thirty("2"),
@@ -12,12 +12,12 @@ public enum TennisGameScore {
 	
 	Object score;
 	
-	private TennisGameScore(String score) {
+	private TennisGameScoreEnum(String score) {
 		this.score = score;
 	}
 	
-	public static TennisGameScore customValueOf(Object value) {
-		for (TennisGameScore v : values())
+	public static TennisGameScoreEnum customValueOf(Object value) {
+		for (TennisGameScoreEnum v : values())
 			if (String.valueOf(v.score).equalsIgnoreCase(String.valueOf(value))) return v;
 		throw new IllegalArgumentException();
 	}
